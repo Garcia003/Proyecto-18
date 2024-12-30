@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+<div class="loader-container" id="loader" hidden>
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden"></span>
+    </div>
+</div>
+<div class="container">
+    <div class="contact__wrapper shadow-lg mt-n9">
+        <div class="row no-gutters">
+            <div class="col-lg-5 contact-info__wrapper gradient-brand-color p-5 order-lg-2 text-center">
+                <h3 class="color--white mb-5">Formulario</h3>
+                <img class="img-fluid imgForm" src="{% static 'img/logo_global.png' %}" alt="">
+            </div>
+    
+            <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">
+                <form action="" method="POST" class="contact-form form-validate" id="form">
+                    <div class="row">
+                        {{ form.errors }}
+                        {% csrf_token %}
+                        <div class="col-12">
+                            {{ form.as_p }}
+                        </div>
+
+                        <div class="col-12 mt-2" id="beneficiario_form" style="display: none;">
+                            <hr style="border: 1px solid gray;">
+                            <h3>Datos del Beneficiario</h3>
+                            {{ beneficiario_form.as_p }}
+                          </div>
+                        <hr class="linea-horizontal">
+    
+                        <div class="col-sm-12 my-3 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </div>
+    
+                    </div>
+                </form>
+            </div>
+            <!-- End Contact Form Wrapper -->
+    
+        </div>
+    </div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.5/sweetalert2.all.min.js"></script>
+<script type="text/javascript"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+{% load sweetify %}
+{% sweetify %}
+</body>
+</html>
