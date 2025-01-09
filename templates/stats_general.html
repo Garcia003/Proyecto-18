@@ -1,0 +1,196 @@
+{% extends './layout/layout.html' %} 
+{% load app_tags %}
+{% block content %}
+<div class="row row-cols-sm-2 row-cols-1 gy-4">
+    <div class="col">
+        <div class="card shadow-none border bg-gradient-start-1 h-100">
+            <div class="card-body p-20">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div>
+                        <p class="fw-medium text-primary-light mb-1">Total QR Codes</p>
+                        <h6 class="mb-0"> {{ total_qrs }} </h6>
+                    </div>
+                    <div class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
+                        <iconify-icon icon="fa-solid:qrcode" class="text-white text-2xl mb-0"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </div><!-- card end -->
+    </div>
+    <div class="col">
+        <div class="card shadow-none border bg-gradient-start-2 h-100">
+            <div class="card-body p-20">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+                    <div>
+                        <p class="fw-medium text-primary-light mb-1">Total Escaneados</p>
+                        <h6 class="mb-0"> {{ total_sum }} </h6>
+                    </div>
+                    <div class="w-50-px h-50-px bg-purple rounded-circle d-flex justify-content-center align-items-center">
+                        <iconify-icon icon="fa-solid:arrow-up" class="text-white text-2xl mb-0"></iconify-icon>
+                    </div>
+                </div>
+            </div>
+        </div><!-- card end -->
+    </div>
+</div>
+<div class="row gy-4 mt-3">
+    <div class="col-xxl-6">
+        <div class="card h-100">
+            <div class="card-body p-24">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
+                    <h6 class="mb-2 fw-bold text-lg mb-0">Acá ira el grafico</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-6">
+        <div class="card h-100">
+            <div class="card-body p-24">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
+                    <h6 class="mb-2 fw-bold text-lg mb-0">Operating Systems</h6>
+                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                        Export CSV
+                        <iconify-icon icon="fa-solid:file-csv" class="icon"></iconify-icon>
+                    </a>
+                </div>
+                <div class="table-responsive scroll-sm" style="overflow: auto; height: 298px;">
+                    <table class="table bordered-table mb-0">
+                        <thead >
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">OS</th>
+                                <th scope="col">Scans</th>
+                                <th scope="col">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for key, value in reports.items %}
+                            <tr>
+                                <td> {{ forloop.counter }} </td>
+                                <td> {{ key }} </td>
+                                <td>{{ value.value }}</td>
+                                <td>{{ value.percentage|floatformat }} %</td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-6">
+        <div class="card h-100">
+            <div class="card-body p-24">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
+                    <h6 class="mb-2 fw-bold text-lg mb-0">Paises</h6>
+                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                        Export CSV
+                        <iconify-icon icon="fa-solid:file-csv" class="icon"></iconify-icon>
+                    </a>
+                </div>
+                <div class="table-responsive scroll-sm" style="overflow: auto; height: 298px;">
+                    <table class="table bordered-table mb-0">
+                        <thead >
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Scans</th>
+                                <th scope="col">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for country, value in countries.items %}
+                            <tr>
+                                <td> {{ forloop.counter }} </td>
+                                <td> 
+                                    <img src="https://flagicons.lipis.dev/flags/4x3/{{country|lower}}.svg" style="width: 23px; margin-right: 12px; position: relative; top: -3px;">
+                                    {{ country }}
+                                </td>
+                                <td>{{ value.value }}</td>
+                                <td>{{ value.percentage|floatformat }} %</td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-6">
+        <div class="card h-100">
+            <div class="card-body p-24">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
+                    <h6 class="mb-2 fw-bold text-lg mb-0">Ciudades</h6>
+                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                        Export CSV
+                        <iconify-icon icon="fa-solid:file-csv" class="icon"></iconify-icon>
+                    </a>
+                </div>
+                <div class="table-responsive scroll-sm" style="overflow: auto; height: 298px;">
+                    <table class="table bordered-table mb-0">
+                        <thead >
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ciudad</th>
+                                <th scope="col">Scans</th>
+                                <th scope="col">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for city, value in cities.items %}
+                            <tr>
+                                <td> {{ forloop.counter }} </td>
+                                <td> {{ city }} </td>
+                                <td>{{ value.value }}</td>
+                                <td>{{ value.percentage|floatformat }} %</td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xxl-12">
+        <div class="card h-100">
+            <div class="card-body p-24">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between mb-20">
+                    <h6 class="mb-2 fw-bold text-lg mb-0">Scans by QR Code</h6>
+                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                        Export CSV
+                        <iconify-icon icon="fa-solid:file-csv" class="icon"></iconify-icon>
+                    </a>
+                </div>
+                <div class="table-responsive scroll-sm" style="overflow: auto; height: 298px;">
+                    <table class="table bordered-table mb-0">
+                        <thead >
+                            <tr>
+                                <th scope="col">QRID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Scans</th>
+                                <th scope="col">%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for qr, value in qr_dict.items %}
+                            <tr>
+                                {% for name in qr|split:"-" %}
+                                    <td> <a href="{% url 'stats' qr|split:'-'|first %}" class="text-primary-600">{{name}}</a> </td>
+                                {% endfor %}
+                                <!-- <td></td> -->
+                                <td>{{ value.value }}</td>
+                                <td>{{ value.percentage|floatformat }} %</td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

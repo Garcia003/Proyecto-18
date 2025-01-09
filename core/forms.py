@@ -15,7 +15,7 @@ def apply_class(widget):
 class MailForm(forms.ModelForm):
     class Meta:
         model= Mail
-        fields = '__all__'
+        exclude = ['payment_point']
         widgets = {
             'birth_date': forms.DateInput(attrs={
                 'type': 'date',  # Selector de calendario
@@ -56,7 +56,7 @@ class MailForm(forms.ModelForm):
 class BeneficiarioForm(forms.ModelForm):
     class Meta:
         model= Beneficiario
-        fields = '__all__'
+        exclude = ['mail']
         widgets = {
             'beneficiary_birth_date': forms.DateInput(attrs={
                 'type': 'date',

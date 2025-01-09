@@ -15,10 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from core  import views
+from django.urls import path, include
+
+from django.conf.urls.static import static
+from django.conf import settings
+
+from core import views
+
+URLS_TOTAL = [
+    path('admin/', admin.site.urls),
+    path('qrcode/<qrid>/', views.qrLink,name='qrLink'),
+    # path('form/', views.registrar_afiliacion,name='formulario'),
+    path('importExcel/', views.importExcel,name='importExcel'),
+    path('form/<qrid>/', views.registrar_afiliacion,name='formulario'),
+    path('stats/', views.stats_general, name='stats_general'),
+    path('stats/<str:qridd>', views.stats_general, name='stats'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('<point>/', views.registrar_afiliacion,name='formulario')
+    path('uqr/', include(URLS_TOTAL))
 ]

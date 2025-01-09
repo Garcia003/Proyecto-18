@@ -1,0 +1,69 @@
+{% extends "layout/layout.html" %}
+
+{% block content %}
+<div class="row gy-4">
+    <div class="d-flex flex-wrap align-items-center gap-4">
+
+        <form class="navbar-search">
+            <input type="text" name="search" placeholder="Search">
+            <iconify-icon icon="ion:search-outline" class="icon"></iconify-icon>
+        </form>
+        <!-- <div class="card h-100">
+            <div class="card-header">
+                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                    <h6 class="mb-2 fw-bold text-lg mb-0">Clientes</h6>
+                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                        View All
+                        <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body p-24">
+                <div class="table-responsive scroll-sm">
+                    <table class="table bordered-table mb-0 table-sm">
+                        <thead>
+                            <tr>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Cliente</th>
+                                <th scope="col">Abono / Aumento</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="text-secondary-light">21 Jun 2024</span></td>
+                                <td><span class="text-secondary-light">Diego Monrroy</span></td>
+                                <td><span class="text-secondary-light">$150.00</span></td>
+                                <td><span class="text-secondary-light">$150.00</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="col-xxl-4 col-sm-6">
+        <a href="#" class="w-100">
+            <div class="card p-3 shadow-2 radius-8 border input-form-light h-100 bg-gradient-end-1">
+            <div class="card-body p-0">
+                <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="mb-0 w-48-px h-48-px bg-primary-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                            <iconify-icon icon="mingcute:user-follow-fill" class="icon"></iconify-icon>
+                        </span>
+                        <div>
+                            <span class="mb-2 fw-medium text-secondary-light text-sm">Diego Monrroy</span>
+                            <h6 class="fw-semibold">15,000</h6>
+                        </div>
+                    </div>
+
+                    <div id="new-user-chart" class="remove-tooltip-title rounded-tooltip-value" style="min-height: 42px;"><div id="apexcharts60a1c726" class="apexcharts-canvas apexcharts60a1c726 apexcharts-theme-light" style="width: 80px; height: 42px;"><svg id="SvgjsSvg1001" width="80" height="42" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><foreignObject x="0" y="0" width="80" height="42"><div class="apexcharts-legend" xmlns="http://www.w3.org/1999/xhtml" style="max-height: 21px;"></div></foreignObject><rect id="SvgjsRect1006" width="0" height="0" x="0" y="0" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fefefe"></rect><g id="SvgjsG1039" class="apexcharts-yaxis" rel="0" transform="translate(-18, 0)"></g><g id="SvgjsG1003" class="apexcharts-inner apexcharts-graphical" transform="translate(0, -3)"><defs id="SvgjsDefs1002"><clipPath id="gridRectMask60a1c726"><rect id="SvgjsRect1008" width="86" height="47" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMask60a1c726"></clipPath><clipPath id="nonForecastMask60a1c726"></clipPath><clipPath id="gridRectMarkerMask60a1c726"><rect id="SvgjsRect1009" width="84" height="49" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient1014" x1="0" y1="0" x2="0" y2="1"><stop id="SvgjsStop1015" stop-opacity="0.75" stop-color="rgba(72,127,255,0.75)" offset="0"></stop><stop id="SvgjsStop1016" stop-opacity="0.3" stop-color="#487fff00" offset="1"></stop><stop id="SvgjsStop1017" stop-opacity="0.3" stop-color="#487fff00" offset="1"></stop></linearGradient></defs><line id="SvgjsLine1007" x1="0" y1="0" x2="0" y2="45" stroke="#b6b6b6" stroke-dasharray="3" stroke-linecap="butt" class="apexcharts-xcrosshairs" x="0" y="0" width="1" height="45" fill="#b1b9c4" filter="none" fill-opacity="0.9" stroke-width="1"></line><g id="SvgjsG1020" class="apexcharts-grid"><g id="SvgjsG1021" class="apexcharts-gridlines-horizontal"></g><g id="SvgjsG1022" class="apexcharts-gridlines-vertical"></g><line id="SvgjsLine1025" x1="0" y1="45" x2="80" y2="45" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line><line id="SvgjsLine1024" x1="0" y1="1" x2="0" y2="45" stroke="transparent" stroke-dasharray="0" stroke-linecap="butt"></line></g><g id="SvgjsG1010" class="apexcharts-area-series apexcharts-plot-series"><g id="SvgjsG1011" class="apexcharts-series" seriesName="series1" data:longestSeries="true" rel="1" data:realIndex="0"><path id="SvgjsPath1018" d="M0 45L0 37.5C3.5 37.5 6.5 22.5 10 22.5C13.5 22.5 16.5 33 20 33C23.5 33 26.5 28.5 30 28.5C33.5 28.5 36.5 36 40 36C43.5 36 46.5 25.5 50 25.5C53.5 25.5 56.5 34.5 60 34.5C63.5 34.5 66.5 7.5 70 7.5C73.5 7.5 76.5 30 80 30C80 30 80 30 80 45M80 30C80 30 80 30 80 30 " fill="url(#SvgjsLinearGradient1014)" fill-opacity="1" stroke-opacity="1" stroke-linecap="round" stroke-width="0" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMask60a1c726)" pathTo="M 0 45 L 0 37.5C 3.5 37.5 6.5 22.5 10 22.5C 13.5 22.5 16.5 33 20 33C 23.5 33 26.5 28.5 30 28.5C 33.5 28.5 36.5 36 40 36C 43.5 36 46.5 25.5 50 25.5C 53.5 25.5 56.5 34.5 60 34.5C 63.5 34.5 66.5 7.5 70 7.5C 73.5 7.5 76.5 30 80 30C 80 30 80 30 80 45M 80 30z" pathFrom="M -1 90 L -1 90 L 10 90 L 20 90 L 30 90 L 40 90 L 50 90 L 60 90 L 70 90 L 80 90"></path><path id="SvgjsPath1019" d="M0 37.5C3.5 37.5 6.5 22.5 10 22.5C13.5 22.5 16.5 33 20 33C23.5 33 26.5 28.5 30 28.5C33.5 28.5 36.5 36 40 36C43.5 36 46.5 25.5 50 25.5C53.5 25.5 56.5 34.5 60 34.5C63.5 34.5 66.5 7.5 70 7.5C73.5 7.5 76.5 30 80 30C80 30 80 30 80 30 " fill="none" fill-opacity="1" stroke="#487fff" stroke-opacity="1" stroke-linecap="round" stroke-width="2" stroke-dasharray="0" class="apexcharts-area" index="0" clip-path="url(#gridRectMask60a1c726)" pathTo="M 0 37.5C 3.5 37.5 6.5 22.5 10 22.5C 13.5 22.5 16.5 33 20 33C 23.5 33 26.5 28.5 30 28.5C 33.5 28.5 36.5 36 40 36C 43.5 36 46.5 25.5 50 25.5C 53.5 25.5 56.5 34.5 60 34.5C 63.5 34.5 66.5 7.5 70 7.5C 73.5 7.5 76.5 30 80 30" pathFrom="M -1 90 L -1 90 L 10 90 L 20 90 L 30 90 L 40 90 L 50 90 L 60 90 L 70 90 L 80 90" fill-rule="evenodd"></path><g id="SvgjsG1012" class="apexcharts-series-markers-wrap apexcharts-hidden-element-shown" data:realIndex="0"><g class="apexcharts-series-markers"><circle id="SvgjsCircle1043" r="0" cx="0" cy="0" class="apexcharts-marker wa394dbv5 no-pointer-events" stroke="#ffffff" fill="#487fff" fill-opacity="1" stroke-width="2" stroke-opacity="0.9" default-marker-size="0"></circle></g></g></g><g id="SvgjsG1013" class="apexcharts-datalabels" data:realIndex="0"></g></g><g id="SvgjsG1023" class="apexcharts-grid-borders"></g><line id="SvgjsLine1026" x1="0" y1="0" x2="80" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line><line id="SvgjsLine1027" x1="0" y1="0" x2="80" y2="0" stroke-dasharray="0" stroke-width="0" stroke-linecap="butt" class="apexcharts-ycrosshairs-hidden"></line><g id="SvgjsG1028" class="apexcharts-xaxis" transform="translate(0, 0)"><g id="SvgjsG1029" class="apexcharts-xaxis-texts-g" transform="translate(0, 4)"></g></g><g id="SvgjsG1040" class="apexcharts-yaxis-annotations apexcharts-hidden-element-shown"></g><g id="SvgjsG1041" class="apexcharts-xaxis-annotations apexcharts-hidden-element-shown"></g><g id="SvgjsG1042" class="apexcharts-point-annotations apexcharts-hidden-element-shown"></g></g></svg><div class="apexcharts-tooltip apexcharts-theme-light"><div class="apexcharts-tooltip-title" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"></div><div class="apexcharts-tooltip-series-group" style="order: 1;"><span class="apexcharts-tooltip-marker" style="background-color: rgb(0, 143, 251);"></span><div class="apexcharts-tooltip-text" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px;"><div class="apexcharts-tooltip-y-group"><span class="apexcharts-tooltip-text-y-label"></span><span class="apexcharts-tooltip-text-y-value"></span></div><div class="apexcharts-tooltip-goals-group"><span class="apexcharts-tooltip-text-goals-label"></span><span class="apexcharts-tooltip-text-goals-value"></span></div><div class="apexcharts-tooltip-z-group"><span class="apexcharts-tooltip-text-z-label"></span><span class="apexcharts-tooltip-text-z-value"></span></div></div></div></div><div class="apexcharts-yaxistooltip apexcharts-yaxistooltip-0 apexcharts-yaxistooltip-left apexcharts-theme-light"><div class="apexcharts-yaxistooltip-text"></div></div></div></div>
+                </div>
+                <p class="text-sm mb-0">Modificación <span class="bg-success-focus px-1 rounded-2 fw-medium text-success-main text-sm">+200</span> Fecha</p>
+            </div>
+        </div>
+        </a>
+    </div>
+</div>
+{% endblock content %}

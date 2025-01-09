@@ -1,0 +1,16 @@
+{% extends "layout/layout.html" %}
+
+{% block content %}
+<div class="row row-cols-sm-2 row-cols-1 gy-4">
+    <div class="col">
+        <div class="d-grid gap-2">
+            <a href="{% url 'client_search' 1 %}" class="btn rounded-pill btn-success-600 radius-8 px-20 py-11">Aumento</a>
+        </div>
+    </div>
+    <div class="col">
+        <div class="d-grid gap-2">
+            <a href="{% url 'client_search' 2 %}" class="btn rounded-pill btn-danger-600 radius-8 px-20 py-11">Desaumento</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

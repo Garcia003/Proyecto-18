@@ -1,0 +1,24 @@
+{% load static %}
+<aside class="sidebar">
+    <button type="button" class="sidebar-close-btn">
+        <iconify-icon icon="radix-icons:cross-2"></iconify-icon>
+    </button>
+    <div>
+        <a href="#" class="sidebar-logo">
+            <img src="{% static 'img/logo-letra-derecha.png' %}" alt="site logo" class="light-logo">
+            <img src="{% static 'img/logo-blanco.png' %}" alt="site logo" class="dark-logo">
+            <img src="{% static 'img/A.png' %}" alt="site logo" class="logo-icon">
+        </a>
+    </div>
+    <div class="sidebar-menu-area">
+        <ul class="sidebar-menu" id="sidebar-menu">
+            <li class="sidebar-menu-group-title">Apps</li>
+            <li>
+                <a href="{% url 'stats_general' %}">
+                    <iconify-icon icon="solar:chart-2-linear" class="menu-icon"></iconify-icon>
+                    <span>Estadisticas</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>
