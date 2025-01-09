@@ -29,6 +29,7 @@ URLS_TOTAL = [
     path('importExcel/', views.importExcel,name='importExcel'),
     path('form/<qrid>/', views.registrar_afiliacion,name='formulario'),
     path('stats/', views.stats_general, name='stats_general'),
+    path('export/', views.exportPointQr, name='exportPointQr'),
     path('stats/<str:qridd>', views.stats_general, name='stats'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

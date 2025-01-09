@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Sum, Count
-
-
+from django.http import HttpResponse
+from django.contrib.sites.shortcuts import get_current_site
 
 from .models import PaymentPoint, QrTable, ReportQr
 from .forms import MailForm, BeneficiarioForm
@@ -12,7 +12,8 @@ from .utils import getPercentajeValue, location, OperatingSystem
 
 import pandas as pd
 import sweetify
-import requests
+import csv
+
 
 
 def registrar_afiliacion(request, qrid=None):
@@ -143,3 +144,22 @@ def stats_general(request, qridd=None):
         'qr_dict':qr_dict,
     }
     return render(request, 'stats_general.html', data)
+
+
+def exportPointQr(request):
+    data = PaymentPoint.objects.all()
+
+    protocol = 'https' if request.is_secure() else 'http'
+    domain = get_current_site(request).domain
+    url = f'{protocol}://{domain}/uqr/media/' if protocol == 'https' else f'{protocol}://{domain}/uqr/uqr/media/'
+
+
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="report.csv"'
+    writer = csv.writer(response)
+    writer.writerow(['Nombre del punto', 'URL del QR'])
+
+    for point in data:
+        writer.writerow([point.name, f'{url}{point.qr_code}'])
+    return response
+    
