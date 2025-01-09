@@ -29,10 +29,10 @@ def get_client_ip(request):
     
     return ip
 
-def location():
+def location(request):
     access_token = '06f6551cc2c21a' 
-    # ip = get_client_ip(request)
-    ip = '181.204.71.85'
+    ip = get_client_ip(request)
+    # ip = '181.204.71.85'
     # ip = '190.249.156.186'
     # ip = '5.188.62.140' # Rusia 
     # ip = '157.100.143.51' # Ecuador 
@@ -53,7 +53,7 @@ def generateslugid():
 
 def generateQRCode(qrid):
     # url = f'http://127.0.0.1/qrcode/{qrid}/'
-    url = f'https://1m0qdz82-8000.use2.devtunnels.ms/qrcode/{qrid}/'
+    url = f'https://plataformas.48hoorassdia.com/uqr/qrcode/{qrid}/'
     qr_image = qrcode.make(url)
     fname = f'qrcode-{qrid}.png'
     buffer = BytesIO()

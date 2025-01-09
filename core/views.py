@@ -60,7 +60,7 @@ def qrLink(request, qrid):
 
 
         os = OperatingSystem(request)
-        locations = location()
+        locations = location(request)
 
         ReportQr.objects.create(
             qr_table=url,
