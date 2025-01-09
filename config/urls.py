@@ -16,16 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
 from django.conf.urls.static import static
 from django.conf import settings
+from django.conf.urls import handler404
 
 from core import views
+
+handler404 = views.page_not_found404
 
 URLS_TOTAL = [
     path('admin/', admin.site.urls),
     path('qrcode/<qrid>/', views.qrLink,name='qrLink'),
-    # path('form/', views.registrar_afiliacion,name='formulario'),
     path('importExcel/', views.importExcel,name='importExcel'),
     path('form/<qrid>/', views.registrar_afiliacion,name='formulario'),
     path('stats/', views.stats_general, name='stats_general'),

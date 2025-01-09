@@ -1,9 +1,8 @@
-from django.http import JsonResponse
-from django.shortcuts import render, redirect
+from django.http import JsonResponse, HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.sites.shortcuts import get_current_site
-from django.db.models import Sum, Count
-from django.http import HttpResponse
+from django.db.models import Sum
 from django.contrib.sites.shortcuts import get_current_site
 
 from .models import PaymentPoint, QrTable, ReportQr
@@ -17,11 +16,12 @@ import csv
 
 
 def registrar_afiliacion(request, qrid=None):
-    point = PaymentPoint.objects.filter(qrid=qrid).first()
-    data = {
-        'form': MailForm(),
-        'beneficiario_form': BeneficiarioForm()
-    }
+    point = get_object_or_404(PaymentPoint, qrid=qrid)
+    # point = PaymentPoint.objects.filter(qrid=qrid).first()
+    # if not point:
+    #     return Http404
+    data = {'form': MailForm(),'beneficiario_form': BeneficiarioForm()}
+    
     if request.method == 'POST':
         form = MailForm(request.POST)
         es_titular = request.POST.get('holder')
@@ -163,3 +163,5 @@ def exportPointQr(request):
         writer.writerow([point.name, f'{url}{point.qr_code}'])
     return response
     
+def page_not_found404(request, exception):
+    return render(request, '404.html')
